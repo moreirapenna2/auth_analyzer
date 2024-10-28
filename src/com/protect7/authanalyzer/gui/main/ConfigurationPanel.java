@@ -384,6 +384,8 @@ public class ConfigurationPanel extends JPanel {
 				newTokenPanel.setIsRemoveToken(tokenPanel.isRemoveToken());
 				newTokenPanel.setAddTokenIfNotExists(tokenPanel.isAddTokenIfNotExists());
 				newTokenPanel.setCaseSensitiveTokenName(tokenPanel.isCaseSensitiveTokenName());
+				newTokenPanel.setVariableTypeString(tokenPanel.isVariableTypeString());
+				newTokenPanel.setVariableTypeNumber(tokenPanel.isVariableTypeNumber());
 				if (tokenPanel.isAutoExtract()) {
 					newTokenPanel.setAutoExtractFieldName(tokenPanel.getAutoExtractFieldName());
 				}
@@ -568,6 +570,8 @@ public class ConfigurationPanel extends JPanel {
 						.setIsFromToString(tokenPanel.isFromToString())
 						.setIsPromptForInput(tokenPanel.isPromptForInput())
 						.setIsCaseSensitiveTokenName(tokenPanel.isCaseSensitiveTokenName())
+						.setIsVariableTypeString(tokenPanel.isVariableTypeString())
+						.setIsVariableTypeNumber(tokenPanel.isVariableTypeNumber())
 						.setIsAddIfNotExists(tokenPanel.isAddTokenIfNotExists())
 						.setIsUrlEncoded(tokenPanel.isUrlEncoded())
 						.setAliases(tokenPanel.getAliases())
@@ -678,6 +682,12 @@ public class ConfigurationPanel extends JPanel {
 				}
 				if(tokenObject.get("caseSensitiveTokenName") != null) {
 					tokenPanel.setCaseSensitiveTokenName(tokenObject.get("caseSensitiveTokenName").getAsBoolean());
+				}
+				if(tokenObject.get("variableTypeString") != null) {
+					tokenPanel.setVariableTypeString(tokenObject.get("variableTypeString").getAsBoolean());
+				}
+				if(tokenObject.get("variableTypeNumber") != null) {
+					tokenPanel.setVariableTypeNumber(tokenObject.get("variableTypeNumber").getAsBoolean());
 				}
 				tokenPanel.setIsRemoveToken(tokenObject.get("remove").getAsBoolean());
 				tokenPanel.setTokenValueComboBox(tokenObject.get("autoExtract").getAsBoolean(),

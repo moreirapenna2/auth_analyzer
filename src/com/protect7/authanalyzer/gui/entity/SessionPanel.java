@@ -226,6 +226,8 @@ public class SessionPanel extends JPanel {
 		tokenPanel.setAutoExtractLocationSet(token.getAutoExtractLocationSet());
 		tokenPanel.setFromToExtractLocationSet(token.getFromToExtractLocationSet());
 		tokenPanel.setCaseSensitiveTokenName(token.isCaseSensitiveTokenName());
+		tokenPanel.setVariableTypeString(token.isVariableTypeString());
+		tokenPanel.setVariableTypeNumber(token.isVariableTypeNumber());
 		tokenPanel.setIsRemoveToken(token.isRemove());
 		tokenPanel.setAddTokenIfNotExists(token.isAddIfNotExists());
 		if (token.isAutoExtract()) {

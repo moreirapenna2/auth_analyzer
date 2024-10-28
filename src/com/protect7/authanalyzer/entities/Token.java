@@ -28,6 +28,8 @@ public class Token {
 	private final EnumSet<AutoExtractLocation> autoExtractLocationSet;
 	private final EnumSet<FromToExtractLocation> fromToExtractLocationSet;
 	private final boolean caseSensitiveTokenName;
+	private final boolean variableTypeString;
+	private final boolean variableTypeNumber;
 	private final boolean addIfNotExists;
 	private final boolean urlEncoded;
 	private boolean urlDecoded;
@@ -36,7 +38,8 @@ public class Token {
 	public Token(String name, EnumSet<TokenLocation> tokenLocationSet, EnumSet<AutoExtractLocation> autoExtractLocationSet, 
 			EnumSet<FromToExtractLocation> fromToExtractLocationSet, String value, String extractName, String grepFromString, 
 			String grepToString, boolean remove, boolean autoExtract, boolean staticValue, boolean fromToString, boolean promptForInput,
-			boolean caseSensitiveTokenName, boolean addIfNotExists, boolean urlEncoded, String test) {
+			boolean caseSensitiveTokenName, boolean variableTypeString, boolean variableTypeNumber, boolean addIfNotExists, 
+			boolean urlEncoded, String test) {
 		this.name = name;
 		this.value = value;
 		this.extractName = extractName;
@@ -51,6 +54,8 @@ public class Token {
 		this.autoExtractLocationSet = autoExtractLocationSet;
 		this.fromToExtractLocationSet = fromToExtractLocationSet;
 		this.caseSensitiveTokenName = caseSensitiveTokenName;
+		this.variableTypeString = variableTypeString;
+		this.variableTypeNumber = variableTypeNumber;
 		this.addIfNotExists = addIfNotExists;
 		this.urlEncoded = urlEncoded;
 	}
@@ -70,6 +75,8 @@ public class Token {
 		this.autoExtractLocationSet = builder.getAutoExtractLocationSet();
 		this.fromToExtractLocationSet = builder.getFromToExtractLocationSet();
 		this.caseSensitiveTokenName = builder.isCaseSensitiveTokenName();
+		this.variableTypeString = builder.isVariableTypeString();
+		this.variableTypeNumber = builder.isVariableTypeNumber();
 		this.addIfNotExists = builder.isAddIfNotExists();
 		this.urlEncoded = builder.isUrlEncoded();
 		this.urlDecoded = builder.isUrlDecoded();
@@ -162,6 +169,14 @@ public class Token {
 
 	public boolean isCaseSensitiveTokenName() {
 		return caseSensitiveTokenName;
+	}
+
+	public boolean isVariableTypeString() {
+		return variableTypeString;
+	}
+
+	public boolean isVariableTypeNumber() {
+		return variableTypeNumber;
 	}
 
 	public boolean isAddIfNotExists() {

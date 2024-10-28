@@ -114,6 +114,30 @@ public class TokenSettingsDialog {
 		inputPanel.add(paramAliases);
 		aliases = new JTextField(tokenPanel.getAliases(),16);
 		inputPanel.add(aliases);
+
+		// add variable type selection
+		inputPanel.add(new JLabel(" "));
+		inputPanel.add(new JSeparator(JSeparator.HORIZONTAL));
+		inputPanel.add(new JLabel(" "));
+		JLabel variableType = new JLabel("<html><strong>Variable Type (select one)</strong></html>");
+		variableType.putClientProperty("html.disable", null);
+		inputPanel.add(variableType);
+		JCheckBox stringTypeCheckBox = new JCheckBox("String");
+		JCheckBox numberTypeCheckBox = new JCheckBox("Number");
+		
+		stringTypeCheckBox.setSelected(tokenPanel.isStringType());
+		stringTypeCheckBox.addActionListener(e -> {
+			tokenPanel.setVariableTypeString(stringTypeCheckBox.isSelected());
+			tokenPanel.setVariableTypeNumber(!stringTypeCheckBox.isSelected());
+		});
+		inputPanel.add(stringTypeCheckBox);
+
+		numberTypeCheckBox.setSelected(tokenPanel.isNumberType());
+		numberTypeCheckBox.addActionListener(e -> {
+			tokenPanel.setVariableTypeNumber(numberTypeCheckBox.isSelected());
+			tokenPanel.setVariableTypeString(!numberTypeCheckBox.isSelected());
+		});
+		inputPanel.add(numberTypeCheckBox);
 			
 		removeTokenCheckBox.addActionListener(e -> {
 			tokenPanel.setFieldsEnabledDisabled();

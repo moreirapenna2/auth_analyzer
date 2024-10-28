@@ -46,6 +46,8 @@ public class TokenPanel extends JPanel {
 	private EnumSet<FromToExtractLocation> fromToExtractLocationSet = FromToExtractLocation.getDefaultSet();
 	private final ArrayList<JLabel> headerJLabelList = new ArrayList<JLabel>();
 	private boolean caseSensitiveTokenName = true;
+	private boolean variableTypeString = true;
+	private boolean variableTypeNumber = false;
 	private boolean addTokenIfNotExists = false;
 	private boolean removeToken = false;
 	private boolean urlEncoded = true;
@@ -384,6 +386,14 @@ public class TokenPanel extends JPanel {
 
 	public void setCaseSensitiveTokenName(boolean caseSensitiveTokenName) {
 		this.caseSensitiveTokenName = caseSensitiveTokenName;
+	}
+
+	public void setVariableTypeString(boolean variableTypeString) {
+		this.variableTypeString = variableTypeString;
+	}
+
+	public void setVariableTypeNumber(boolean variableTypeNumber) {
+		this.variableTypeNumber = variableTypeNumber;
 	}
 
 	public String getAliases() {

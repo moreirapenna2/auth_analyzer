@@ -18,6 +18,8 @@ public class TokenBuilder {
 	private EnumSet<AutoExtractLocation> autoExtractLocationSet = AutoExtractLocation.getDefaultSet();
 	private EnumSet<FromToExtractLocation> fromToExtractLocationSet = FromToExtractLocation.getDefaultSet();
 	private boolean caseSensitiveTokenName = true;
+	private boolean variableTypeString = true;
+	private boolean variableTypeNumber = false;
 	private boolean addIfNotExists = false;
 	private boolean urlEncoded = true;
 	private boolean urlDecoded = false;
@@ -130,6 +132,20 @@ public class TokenBuilder {
 	}
 	public TokenBuilder setIsCaseSensitiveTokenName(boolean caseSensitiveTokenName) {
 		this.caseSensitiveTokenName = caseSensitiveTokenName;
+		return this;
+	}
+	public boolean isVariableTypeString() {
+		return variableTypeString;
+	}
+	public TokenBuilder setIsVariableTypeString(boolean variableTypeString) {
+		this.variableTypeString = variableTypeString;
+		return this;
+	}
+	public boolean isVariableTypeNumber() {
+		return variableTypeNumber;
+	}
+	public TokenBuilder setIsVariableTypeNumber(boolean variableTypeNumber) {
+		this.variableTypeNumber = variableTypeNumber;
 		return this;
 	}
 	public boolean isAddIfNotExists() {
